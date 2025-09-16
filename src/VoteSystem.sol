@@ -11,11 +11,11 @@ contract VoteSystem is Groth16Verifier {
         uint[2] calldata _pA,
         uint[2][2] calldata _pB,
         uint[2] calldata _pC,
-        uint[] calldata _pubSignals
+        uint256[1] calldata _pubSignals
     ) public {
-        require(verifyProof(proof, publicInputs), "Invalid proof");
+        require(verifyProof(_pA,_pB,_pC,_pubSignals), "Invalid proof");
 
-        bytes32 commitment = bytes32(publicInputs[0]);
+        bytes32 commitment = bytes32(_pubSignals[0]);
         require(!voted[commitment], "Already voted");
 
         voted[commitment] = true;

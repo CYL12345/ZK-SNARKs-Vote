@@ -26,4 +26,4 @@ template VoteCircuit() {
     voteCommitment <== hasher.out;
 }
 
-component main = VoteCircuit();
+//component main = VoteCircuit();
