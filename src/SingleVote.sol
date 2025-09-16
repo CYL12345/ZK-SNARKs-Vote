@@ -3,7 +3,7 @@ pragma solidity ^0.8.28;
 
 import "./VoteVerifier.sol"; // snarkjs导出的verifier
 
-contract VoteSystem is Groth16Verifier {
+contract SingleVote is Groth16Verifier {
     mapping(bytes32 => bool) public voted;
     event VoteSubmitted(address voter, bytes32 commitment);
 

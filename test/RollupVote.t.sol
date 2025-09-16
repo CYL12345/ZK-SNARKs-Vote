@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import "../src/VoteSystem.sol";
+import "../src/SingleVote.sol";
 import "../src/VoteVerifier.sol";
 import "../src/RollupVote.sol";
 import "../src/RollupsVoteVerifier.sol";
@@ -10,7 +10,7 @@ import "../src/RollupsVoteVerifier.sol";
 contract VoteContractsTest is Test {
     // 单独验证
     Groth16Verifier voteVerifier;
-    VoteSystem voteSystem;
+    SingleVote voteSystem;
 
     // 聚合验证
     RollupGrothGroth16Verifier rollupVerifier;
@@ -19,7 +19,7 @@ contract VoteContractsTest is Test {
     function setUp() public {
         // 部署单独验证合约
         voteVerifier = new Groth16Verifier();
-        voteSystem = new VoteSystem();
+        voteSystem = new SingleVote();
 
         // 部署聚合验证合约
         rollupVerifier = new RollupGrothGroth16Verifier();
